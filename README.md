@@ -6,7 +6,7 @@ import "github.com/nguyendhst/goodle"
 
 func main() {
     // Create a new Moodle client
-    client := goodle.NewClient("http://moodle.example.com/webservice/rest/server.php", "token")
+    client := goodle.NewClient("http://moodle.example.com/", "token")
     // Get Site information
     info, _ := client.GetSiteInfo()
     // Get Unread conversations
