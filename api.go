@@ -14,12 +14,18 @@ type (
 		fetch Fetcher
 	}
 
+	Functions struct {
+		Name    string `json:"name"`
+		Version string `json:"version"`
+	}
+
 	SiteInfo struct {
-		Sitename  string `json:"sitename"`
-		Username  string `json:"username"`
-		Firstname string `json:"firstname"`
-		Lastname  string `json:"lastname"`
-		Fullname  string `json:"fullname"`
+		Sitename  string      `json:"sitename"`
+		Username  string      `json:"username"`
+		Firstname string      `json:"firstname"`
+		Lastname  string      `json:"lastname"`
+		Fullname  string      `json:"fullname"`
+		Functions []Functions `json:"functions"`
 	}
 
 	UnreadConvo struct {
@@ -32,8 +38,8 @@ type (
 	}
 )
 
-// NewMoodleAPI creates a new MoodleAPI instance.
-func NewMoodleAPI(base, token string) *MoodleAPI {
+// NewClient creates a new MoodleAPI instance.
+func NewClient(base, token string) *MoodleAPI {
 	if base != "" {
 		if !strings.HasSuffix(base, "/") {
 			base = base + "/"
